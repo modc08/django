@@ -277,7 +277,7 @@ class Field(object):
         """
         Returns field's value just before saving.
         """
-        return getattr(model_instance, self.attname)
+        return self.clean(getattr(model_instance, self.attname), model_instance)
 
     def get_prep_value(self, value):
         """
